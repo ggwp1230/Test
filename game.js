@@ -1,4 +1,4 @@
-/* ===== Block Blast — Yandex Games ===== */
+/* ===== Block Smash Puzzle — Yandex Games ===== */
 
 // ── Localization ──
 const LANG = {

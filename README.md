@@ -1,10 +1,10 @@
-# Block Blast — Yandex Games
+# Block Smash Puzzle — Yandex Games
 
 Puzzle game for the [Yandex Games](https://yandex.ru/games) platform.
 
 ## Game Description
 
-Block Blast is an addictive grid-based puzzle game. Place shapes on the 8x8 grid to fill complete rows or columns and clear them for points. The game gets progressively harder as your score increases.
+Block Smash Puzzle is an addictive grid-based puzzle game. Place shapes on the 8x8 grid to fill complete rows or columns and clear them for points. The game gets progressively harder as your score increases.
 
 ## Features
 
