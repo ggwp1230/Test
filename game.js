@@ -1,4 +1,4 @@
-/* ===== Block Blast — Yandex Games ===== */
+/* ===== Block Smash Puzzle — Yandex Games ===== */
 
 // ── Localization ──
 const LANG = {
@@ -372,14 +372,21 @@ function checkAndClearLines() {
         for (let r = 0; r < GRID_SIZE; r++) cellsToClear.add(`${r},${c}`);
     });
 
-    // Flash animation
-    flashCells(cellsToClear);
+    // Save original colors before clearing
+    const cellColors = new Map();
+    cellsToClear.forEach(key => {
+        const [r, c] = key.split(',').map(Number);
+        cellColors.set(key, grid[r][c]);
+    });
 
-    // Clear
+    // Clear grid
     cellsToClear.forEach(key => {
         const [r, c] = key.split(',').map(Number);
         grid[r][c] = null;
     });
+
+    // Flash animation using saved colors
+    flashCells(cellsToClear, cellColors);
 
     // Score bonus
     const bonus = totalLines * GRID_SIZE * 10;
@@ -389,18 +396,21 @@ function checkAndClearLines() {
     return totalLines;
 }
 
-function flashCells(cellsSet) {
+function flashCells(cellsSet, cellColors) {
     let flashCount = 0;
     const flashInterval = setInterval(() => {
         cellsSet.forEach(key => {
             const [r, c] = key.split(',').map(Number);
             const x = c * cellSize;
             const y = r * cellSize;
-            ctx.fillStyle = flashCount % 2 === 0 ? '#fff' : grid[r][c];
+            ctx.fillStyle = flashCount % 2 === 0 ? '#fff' : (cellColors.get(key) || '#fff');
             ctx.fillRect(x + 1, y + 1, cellSize - 2, cellSize - 2);
         });
         flashCount++;
-        if (flashCount >= 4) clearInterval(flashInterval);
+        if (flashCount >= 4) {
+            clearInterval(flashInterval);
+            drawGrid();
+        }
     }, 60);
 }
 
@@ -556,12 +566,28 @@ async function showLeaderboard() {
         entries.entries.forEach((entry) => {
             const div = document.createElement('div');
             div.className = 'lb-entry' + (entry.player.uniqueID === (player?.getUniqueID?.() || '') ? ' me' : '');
-            div.innerHTML = `
-                <span class="lb-rank">${entry.rank}</span>
-                <img class="lb-avatar" src="${entry.player.getAvatarSrc?.('small') || ''}" onerror="this.style.display='none'">
-                <span class="lb-name">${entry.player.publicName || 'Player'}</span>
-                <span class="lb-score">${entry.score}</span>
-            `;
+
+            const rank = document.createElement('span');
+            rank.className = 'lb-rank';
+            rank.textContent = entry.rank;
+
+            const avatar = document.createElement('img');
+            avatar.className = 'lb-avatar';
+            avatar.src = entry.player.getAvatarSrc?.('small') || '';
+            avatar.onerror = function() { this.style.display = 'none'; };
+
+            const name = document.createElement('span');
+            name.className = 'lb-name';
+            name.textContent = entry.player.publicName || 'Player';
+
+            const scoreEl = document.createElement('span');
+            scoreEl.className = 'lb-score';
+            scoreEl.textContent = entry.score;
+
+            div.appendChild(rank);
+            div.appendChild(avatar);
+            div.appendChild(name);
+            div.appendChild(scoreEl);
             list.appendChild(div);
         });
     } catch (e) {

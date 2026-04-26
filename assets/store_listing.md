@@ -1,24 +1,24 @@
-# Block Blast — Store Listing for Yandex Games
+# Block Smash Puzzle — Store Listing for Yandex Games
 
 ## Название / Name (max 50)
 ```
-Block Blast
+Block Smash Puzzle
 ```
 
 ## Описание для SEO / SEO Description (max 160)
 **RU:**
 ```
-Block Blast — увлекательная головоломка: размещай фигуры на поле 8×8, заполняй ряды и столбцы, набирай очки и соревнуйся в таблице лидеров!
+Block Smash Puzzle — увлекательная головоломка: размещай фигуры на поле 8×8, заполняй ряды и столбцы, набирай очки и соревнуйся в таблице лидеров!
 ```
 **EN:**
 ```
-Block Blast — addictive puzzle game: place shapes on 8×8 grid, fill rows and columns to clear them, score points and compete on the leaderboard!
+Block Smash Puzzle — addictive puzzle game: place shapes on 8×8 grid, fill rows and columns to clear them, score points and compete on the leaderboard!
 ```
 
 ## Об игре / About the game (max 1000)
 **RU:**
 ```
-Block Blast — классическая головоломка с блоками для всех возрастов.
+Block Smash Puzzle — классическая головоломка с блоками для всех возрастов.
 
 Размещайте разнообразные фигуры на игровом поле 8×8. Заполняйте целые ряды или столбцы, чтобы очистить их и заработать бонусные очки. Чем больше линий вы очищаете за раз — тем выше комбо-бонус!
 
@@ -34,7 +34,7 @@ Block Blast — классическая головоломка с блокам�
 
 **EN:**
 ```
-Block Blast — a classic block puzzle game for all ages.
+Block Smash Puzzle — a classic block puzzle game for all ages.
 
 Place various shapes onto the 8×8 game board. Fill complete rows or columns to clear them and earn bonus points. The more lines you clear at once — the higher your combo bonus!
 
