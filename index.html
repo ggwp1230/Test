@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Block Blast</title>
+    <!-- Yandex Games SDK -->
+    <script src="/sdk.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="screen active">
+            <div class="loading-content">
+                <h1 id="loading-title">Block Blast</h1>
+                <div class="loader"></div>
+                <p id="loading-text">Loading...</p>
+            </div>
+        </div>
+
+        <!-- Menu Screen -->
+        <div id="menu-screen" class="screen">
+            <div class="menu-content">
+                <h1 class="game-title">Block Blast</h1>
+                <div class="best-score-display">
+                    <span id="menu-best-label">Best</span>: <span id="menu-best-score">0</span>
+                </div>
+                <button id="play-btn" class="btn btn-primary"></button>
+                <button id="leaderboard-btn" class="btn btn-secondary"></button>
+                <div class="controls-hint" id="controls-hint"></div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="score-panel">
+                    <div class="score-box">
+                        <span class="score-label" id="score-label">Score</span>
+                        <span class="score-value" id="current-score">0</span>
+                    </div>
+                    <div class="score-box">
+                        <span class="score-label" id="best-label">Best</span>
+                        <span class="score-value" id="best-score">0</span>
+                    </div>
+                </div>
+            </div>
+            <canvas id="game-canvas"></canvas>
+            <div id="shapes-panel"></div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameover-screen" class="screen">
+            <div class="gameover-content">
+                <h2 id="gameover-title">Game Over</h2>
+                <div class="final-scores">
+                    <div class="final-score">
+                        <span id="final-score-label">Score</span>
+                        <span id="final-score-value" class="big-number">0</span>
+                    </div>
+                    <div class="final-score">
+                        <span id="final-best-label">Best</span>
+                        <span id="final-best-value" class="big-number">0</span>
+                    </div>
+                </div>
+                <div id="new-record" class="new-record" style="display:none"></div>
+                <button id="restart-btn" class="btn btn-primary"></button>
+                <button id="menu-btn" class="btn btn-secondary"></button>
+            </div>
+        </div>
+
+        <!-- Leaderboard Screen -->
+        <div id="leaderboard-screen" class="screen">
+            <div class="leaderboard-content">
+                <h2 id="lb-title">Leaderboard</h2>
+                <div id="lb-list" class="lb-list"></div>
+                <button id="lb-back-btn" class="btn btn-secondary"></button>
+            </div>
+        </div>
+
+        <!-- Combo popup -->
+        <div id="combo-popup" class="combo-popup"></div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
